@@ -1,24 +1,23 @@
 # bilibili-fav-refine
 
-> 
-
-[![Build Status](https://img.shields.io/github/actions/workflow/status/magicdawn/bilibili-fav-refine/ci.yml?style=flat-square&branch=main)](https://github.com/magicdawn/bilibili-fav-refine/actions/workflows/ci.yml)
-[![Coverage Status](https://img.shields.io/codecov/c/github/magicdawn/bilibili-fav-refine.svg?style=flat-square)](https://codecov.io/gh/magicdawn/bilibili-fav-refine)
-[![npm version](https://img.shields.io/npm/v/bilibili-fav-refine.svg?style=flat-square)](https://www.npmjs.com/package/bilibili-fav-refine)
-[![npm downloads](https://img.shields.io/npm/dm/bilibili-fav-refine.svg?style=flat-square)](https://www.npmjs.com/package/bilibili-fav-refine)
-[![npm license](https://img.shields.io/npm/l/bilibili-fav-refine.svg?style=flat-square)](http://magicdawn.mit-license.org)
+> user.css, B 站收藏体验优化
 
 ## Install
 
-```sh
-$ pnpm add bilibili-fav-refine
-```
+https://userstyles.world/style/10577/bilibili-favlist
 
-## API
+## 功能
 
-```js
-const bilibiliFavRefine = require('bilibili-fav-refine');
-```
+### `https://space.bilibili.com/<mid>/favlist` 收藏列表
+
+- 显示优化, 更宽的页面
+- 移动, 选择收藏夹: 固定页面滚动, 选择区域尽可能高
+
+### 视频播放页面
+
+- 收藏, 选择收藏夹: 固定页面滚动, 选择区域尽可能高
+
+![image](https://github.com/magicdawn/bilibili-fav-refine/assets/4067115/21a4aa18-184a-43d9-ad0c-571e13a16641)
 
 ## Changelog
 

@@ -1,0 +1,108 @@
+/* ==UserStyle==
+@name           BILIBILI 收藏 FavList 宽屏优化
+@namespace      github.com/magicdawn
+@version        1.0.0
+@description    B站, BILIBILI 收藏 FavList 宽屏优化
+@author         magicdawn
+@preprocessor   less
+==/UserStyle== */
+
+@-moz-document regexp("https://space\\.bilibili\\.com\\/\\d+\\/favlist.*"), regexp("https://space\\.bilibili\\.com\\/\\d+\\/video.*"), url-prefix("https://www.bilibili.com/list/watchlater?bvid="), url-prefix("https://www.bilibili.com/video/")
+{
+  .wrapper {
+    width: calc(100vw - 60px) !important;
+  }
+
+  // 选择收藏夹 modal
+  body:has(.modal-container.edit-video-modal[style]) {
+    overflow: hidden;
+  }
+  body:has(.modal-container.edit-video-modal[style='display: none;']) {
+    overflow: unset;
+  }
+
+  // 视频观看页面, 选择收藏夹
+  body:has(.bili-dialog-m) {
+    overflow: hidden !important;
+  }
+  .bili-dialog-m {
+    .bili-dialog-bomb {
+      .collection-m-exp {
+        .content {
+          height: max-content;
+          max-height: calc(95vh - 60px - 75px - 20px - 70px);
+        }
+      }
+    }
+  }
+
+  #page-fav,
+  #page-video {
+    .fav-sidenav .fav-list-container {
+      max-height: max-content;
+    }
+
+    .col-full {
+      display: flex;
+
+      // fav
+      .fav-sidenav {
+        float: unset;
+      }
+      .fav-main {
+        float: unset;
+        flex: 1;
+      }
+
+      // UP 视频投稿
+      .contribution-sidenav {
+        float: unset;
+      }
+      .main-content {
+        float: unset;
+        flex: 1;
+      }
+    }
+
+    ul.cube-list {
+      width: unset;
+    }
+
+    ul.fav-video-list,
+    ul.cube-list {
+      gap: 40px 16px;
+
+      // display: flex;
+      // flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      &:before,
+      &:after {
+        display: none;
+      }
+
+      li {
+        width: unset !important;
+        margin: 0 !important;
+
+        .cover {
+          width: 100% !important;
+          aspect-ratio: 350 / 200;
+          height: auto !important;
+          // height: 200px !important;
+          border-radius: 12px;
+        }
+
+        .title {
+          font-size: 15px;
+        }
+      }
+    }
+
+    // 移动到-选择收藏夹
+    .edit-video-modal .target-favlist {
+      max-height: calc(95vh - 75px - 20px - 70px);
+    }
+  }
+}
