@@ -7,7 +7,7 @@
 @preprocessor   less
 ==/UserStyle== */
 
-@-moz-document regexp("https://space\\.bilibili\\.com\\/\\d+\\/favlist.*"), regexp("https://space\\.bilibili\\.com\\/\\d+\\/video.*"), url-prefix("https://www.bilibili.com/list/watchlater?bvid="), url-prefix("https://www.bilibili.com/video/")
+@-moz-document regexp("https://space\\.bilibili\\.com\\/\\d+\\/favlist.*"), regexp("https://space\\.bilibili\\.com\\/\\d+\\/video.*")
 {
   .wrapper {
     width: calc(100vw - 60px) !important;
@@ -19,21 +19,6 @@
   }
   body:has(.modal-container.edit-video-modal[style='display: none;']) {
     overflow: unset;
-  }
-
-  // 视频观看页面, 选择收藏夹
-  body:has(.bili-dialog-m) {
-    overflow: hidden !important;
-  }
-  .bili-dialog-m {
-    .bili-dialog-bomb {
-      .collection-m-exp {
-        .content {
-          height: max-content;
-          max-height: calc(95vh - 60px - 75px - 20px - 70px);
-        }
-      }
-    }
   }
 
   #page-fav,
@@ -103,6 +88,57 @@
     // 移动到-选择收藏夹
     .edit-video-modal .target-favlist {
       max-height: calc(95vh - 75px - 20px - 70px);
+    }
+  }
+}
+
+/**
+ * 视频播放页
+ */
+@-moz-document url-prefix("https://www.bilibili.com/list/watchlater?bvid="),
+  url-prefix("https://www.bilibili.com/video/")
+{
+  /**
+   * 选择收藏夹 modal
+   */
+
+  // body has general modal
+  body:has(.video-toolbar-container .bili-dialog-m) {
+    overflow: hidden !important;
+  }
+
+  // 收藏 .collection-m-exp
+  // 还有其他的
+
+  // 收藏 modal
+  body:has(.collection-m-exp) {
+    // bilibili-evolved custom header
+    @header: ~'var(--navbar-height, 64px)';
+
+    .video-toolbar-container .bili-dialog-m {
+      .bili-dialog-bomb {
+        top: @header;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        transform: unset;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .collection-m-exp {
+          .content {
+            height: max-content;
+
+            @modal-header: 50px;
+            @modal-footer: 77px;
+            @modal-padding: 5px;
+            max-height: calc(100vh - @header - @modal-header - @modal-footer - @modal-padding * 2);
+          }
+        }
+      }
     }
   }
 }
