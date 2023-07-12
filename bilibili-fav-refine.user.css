@@ -115,27 +115,21 @@
     // bilibili-evolved custom header
     @header: ~'var(--navbar-height, 64px)';
 
+    // rm this stack context
+    .video-container-v1 .left-container.scroll-sticky {
+      position: relative;
+      z-index: unset;
+    }
+
     .video-toolbar-container .bili-dialog-m {
       .bili-dialog-bomb {
-        top: @header;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: 0;
-        transform: unset;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
         .collection-m-exp {
           .content {
             height: max-content;
-
             @modal-header: 50px;
             @modal-footer: 77px;
-            @modal-padding: 5px;
-            max-height: calc(100vh - @header - @modal-header - @modal-footer - @modal-padding * 2);
+            @modal-padding: 15px;
+            max-height: calc(100vh - @modal-header - @modal-footer - @modal-padding * 2);
           }
         }
       }
