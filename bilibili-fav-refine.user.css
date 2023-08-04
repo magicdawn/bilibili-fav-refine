@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           BILIBILI 收藏 FavList 宽屏优化
 @namespace      github.com/magicdawn
-@version        1.0.0
+@version        2023.08.05
 @description    B站, BILIBILI 收藏 FavList 宽屏优化
 @author         magicdawn
 @preprocessor   less
@@ -103,12 +103,12 @@
    */
 
   // body has general modal
-  body:has(.video-toolbar-container .bili-dialog-m) {
+  body:has(.bili-dialog-m) {
     overflow: hidden !important;
   }
 
   // 收藏 .collection-m-exp
-  // 还有其他的
+  // and others
 
   // 收藏 modal
   body:has(.collection-m-exp) {
@@ -121,7 +121,7 @@
       z-index: unset;
     }
 
-    .video-toolbar-container .bili-dialog-m {
+    .bili-dialog-m {
       .bili-dialog-bomb {
         .collection-m-exp {
           .content {
