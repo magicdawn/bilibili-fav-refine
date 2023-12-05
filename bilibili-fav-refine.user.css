@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           BILIBILI 收藏 FavList 宽屏优化
 @namespace      github.com/magicdawn
-@version        2023.08.05
+@version        2023.12.06
 @description    B站, BILIBILI 收藏 FavList 宽屏优化
 @author         magicdawn
 @preprocessor   less
@@ -85,9 +85,55 @@
       }
     }
 
-    // 移动到-选择收藏夹
-    .edit-video-modal .target-favlist {
-      max-height: calc(95vh - 75px - 20px - 70px);
+    /**
+     * 移动到-选择收藏夹
+     */
+    .edit-video-modal {
+      // .modal-title {
+      //   height: 50px;
+      // }
+      // .modal-body {
+      //   margin-bottom: 0;
+      // }
+      // .modal-footer {
+      //   padding-top: 10px;
+      //   padding-bottom: 10px;
+      // }
+
+      .target-favlist {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        max-height: calc(95vh - 75px - 100px);
+      }
+
+      .modal-wrapper {
+        width: 1200px;
+      }
+
+      .target-favlist-container {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0 30px;
+      }
+
+      .target-favitem {
+        margin-bottom: 30px;
+
+        .fav-select {
+          margin-top: 4px;
+        }
+
+        justify-content: flex-start;
+        .target-fav-count {
+          margin-left: 4px;
+          &::before {
+            content: '(';
+          }
+          &::after {
+            content: ')';
+          }
+        }
+      }
     }
   }
 }
