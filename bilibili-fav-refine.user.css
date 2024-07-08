@@ -1,11 +1,15 @@
 /* ==UserStyle==
-@name           BILIBILI 收藏 FavList 宽屏优化
-@namespace      github.com/magicdawn
-@version        2023.12.06
-@description    B站, BILIBILI 收藏 FavList 宽屏优化
+@name           BiliBili 收藏 FavList 宽屏优化
+@namespace      github.com/magicdawn/bilibili-fav-refine
+@version        2024.07.08
+@description    B站, BiliBili 收藏 FavList 宽屏优化
 @author         magicdawn
 @preprocessor   less
 ==/UserStyle== */
+
+@bili-pink: #ff6699;
+@bili-blue: #00aeec;
+@marrs-green: #01847f; // 马尔斯绿
 
 @-moz-document regexp("https://space\\.bilibili\\.com\\/\\d+\\/favlist.*"), regexp("https://space\\.bilibili\\.com\\/\\d+\\/video.*")
 {
@@ -169,13 +173,56 @@
 
     .bili-dialog-m {
       .bili-dialog-bomb {
+        width: 1200px;
+
         .collection-m-exp {
+          width: 100%;
+
           .content {
             height: max-content;
             @modal-header: 50px;
             @modal-footer: 77px;
             @modal-padding: 15px;
             max-height: calc(100vh - @modal-header - @modal-footer - @modal-padding * 2);
+
+            .group-list {
+              max-height: unset;
+
+              ul {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 20px 20px;
+                margin-bottom: 20px;
+
+                li {
+                  border: 1px solid transparent;
+                  border-radius: 6px;
+                  border-color: @bili-blue;
+                  &:hover {
+                    background-color: var(--bg2);
+                    box-shadow: 0 0 8px 6px #00aeec;
+                  }
+
+                  padding-block: 12px;
+                  padding-inline: 10px;
+
+                  label {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: nowrap;
+
+                    .personal {
+                      margin-left: 15px;
+                    }
+
+                    .count {
+                      flex-grow: 1;
+                      text-align: right;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
