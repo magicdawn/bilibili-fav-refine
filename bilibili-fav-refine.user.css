@@ -13,131 +13,89 @@
 
 @-moz-document regexp("https://space\\.bilibili\\.com\\/\\d+\\/favlist.*"), regexp("https://space\\.bilibili\\.com\\/\\d+\\/video.*")
 {
-  .wrapper {
-    width: calc(100vw - 60px) !important;
+  // 页面加宽
+  @media (min-width: 1560px) {
+    #app .space-main {
+      --side-padding: 60px;
+    }
   }
 
-  // 选择收藏夹 modal
-  body:has(.modal-container.edit-video-modal[style]) {
-    overflow: hidden;
+  // 选择收藏夹, 列表加长
+  .space-main.route_favlist {
+    .fav-collapse-wrap {
+      max-height: unset !important;
+    }
   }
-  body:has(.modal-container.edit-video-modal[style='display: none;']) {
-    overflow: unset;
+
+  // 选择收藏夹 modal 打开: 锁定滚动
+  body:has(.vui_dialog--content.fav-modify-modal-content) {
+    overflow-y: hidden;
   }
 
-  #page-fav,
-  #page-video {
-    .fav-sidenav .fav-list-container {
-      max-height: max-content;
+  /**
+  * 移动到-选择收藏夹
+  */
+  .vui_dialog--content.fav-modify-modal-content {
+    width: 1200px !important;
+
+    .modify-fav-wrapper {
+      height: unset;
+      overflow-y: unset;
     }
 
-    .col-full {
-      display: flex;
-
-      // fav
-      .fav-sidenav {
-        float: unset;
-      }
-      .fav-main {
-        float: unset;
-        flex: 1;
-      }
-
-      // UP 视频投稿
-      .contribution-sidenav {
-        float: unset;
-      }
-      .main-content {
-        float: unset;
-        flex: 1;
-      }
-    }
-
-    ul.cube-list {
-      width: unset;
-    }
-
-    ul.fav-video-list,
-    ul.cube-list {
-      gap: 40px 16px;
-
-      // display: flex;
-      // flex-wrap: wrap;
+    .modify-fav-list .vui_radio-group {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-
-      &:before,
-      &:after {
-        display: none;
-      }
-
-      li {
-        width: unset !important;
-        margin: 0 !important;
-
-        .cover {
-          width: 100% !important;
-          aspect-ratio: 350 / 200;
-          height: auto !important;
-          // height: 200px !important;
-          border-radius: 12px;
-        }
-
-        .title {
-          font-size: 15px;
-        }
-      }
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0 30px;
+      max-height: calc(95vh - 220px);
+      overflow-y: auto;
+      column-gap: 25px;
+      row-gap: 15px;
     }
 
-    /**
-     * 移动到-选择收藏夹
-     */
-    .edit-video-modal {
-      // .modal-title {
-      //   height: 50px;
-      // }
-      // .modal-body {
-      //   margin-bottom: 0;
-      // }
-      // .modal-footer {
-      //   padding-top: 10px;
-      //   padding-bottom: 10px;
-      // }
+    .vui_radio.modify-fav-item {
+      justify-content: flex-start;
+      border: 1px solid #eee;
+      border-radius: 7px;
+      padding-inline: 10px !important;
 
-      .target-favlist {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        max-height: calc(95vh - 75px - 100px);
-      }
-
-      .modal-wrapper {
-        width: 1200px;
-      }
-
-      .target-favlist-container {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 0 30px;
-      }
-
-      .target-favitem {
-        margin-bottom: 30px;
-
-        .fav-select {
-          margin-top: 4px;
+      // 数字 + 括号
+      .modify-fav-item__count {
+        &::before {
+          content: '(';
         }
-
-        justify-content: flex-start;
-        .target-fav-count {
-          margin-left: 4px;
-          &::before {
-            content: '(';
-          }
-          &::after {
-            content: ')';
-          }
+        &::after {
+          content: ')';
         }
       }
+
+      // hover & selected 高亮
+      &:hover {
+        background-color: var(--bg2);
+      }
+      &.vui_radio--checked {
+        background-color: var(--brand_blue);
+        color: var(--text_white);
+        .modify-fav-item__title,
+        .modify-fav-item__count {
+          color: var(--text_white);
+        }
+      }
+
+      .vui_radio--label {
+        padding: 0;
+      }
+
+      // radio button 不在中心, 但这个修复也不能在中心
+      // .vui_radio--input-box {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   &::after {
+      //     position: static;
+      //     inset: unset;
+      //   }
+      // }
     }
   }
 }
