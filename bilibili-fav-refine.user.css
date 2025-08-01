@@ -112,79 +112,9 @@
    */
 
   // body has general modal
-  body:has(.bili-dialog-m) {
-    overflow: hidden !important;
-  }
-
-  // 收藏 .collection-m-exp
-  // and others
+  // body:has(.bili-dialog-m) {
+  //   overflow: hidden !important;
+  // }
 
   // 收藏 modal
-  body:has(.collection-m-exp) {
-    // bilibili-evolved custom header
-    @header: ~'var(--navbar-height, 64px)';
-
-    // rm this stack context
-    .video-container-v1 .left-container.scroll-sticky {
-      position: relative;
-      z-index: unset;
-    }
-
-    .bili-dialog-m {
-      .bili-dialog-bomb {
-        width: 1200px;
-
-        .collection-m-exp {
-          width: 100%;
-
-          .content {
-            height: max-content;
-            @modal-header: 50px;
-            @modal-footer: 77px;
-            @modal-padding: 15px;
-            max-height: calc(100vh - @modal-header - @modal-footer - @modal-padding * 2);
-
-            .group-list {
-              max-height: unset;
-
-              ul {
-                display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 20px 20px;
-                margin-bottom: 20px;
-
-                li {
-                  border: 1px solid transparent;
-                  border-radius: 6px;
-                  border-color: @bili-blue;
-                  &:hover {
-                    background-color: var(--bg2);
-                    box-shadow: 0 0 8px 6px #00aeec;
-                  }
-
-                  padding-block: 12px;
-                  padding-inline: 10px;
-
-                  label {
-                    display: flex;
-                    align-items: center;
-                    flex-wrap: nowrap;
-
-                    .personal {
-                      margin-left: 15px;
-                    }
-
-                    .count {
-                      flex-grow: 1;
-                      text-align: right;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }
