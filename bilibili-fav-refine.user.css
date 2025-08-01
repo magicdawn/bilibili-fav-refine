@@ -23,7 +23,8 @@
   // 选择收藏夹, 列表加长
   .space-main.route_favlist {
     .fav-collapse-wrap {
-      max-height: unset !important;
+      // max-height: unset !important;
+      max-height: 90vh !important;
     }
   }
 
@@ -36,7 +37,7 @@
   * 移动到-选择收藏夹
   */
   .vui_dialog--content.fav-modify-modal-content {
-    width: 1200px !important;
+    width: min(1200px, 90vw) !important;
 
     .modify-fav-wrapper {
       height: unset;
