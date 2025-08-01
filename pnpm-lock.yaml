@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@magicdawn/prettier-config':
-        specifier: ^0.0.4
-        version: 0.0.4
+        specifier: ^0.1.0
+        version: 0.1.0
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -18,13 +18,13 @@ importers:
         specifier: ^14.0.1
         version: 14.0.1
       prettier:
-        specifier: ^3.3.2
-        version: 3.3.2
+        specifier: ^3.6.2
+        version: 3.6.2
 
 packages:
 
-  '@magicdawn/prettier-config@0.0.4':
-    resolution: {integrity: sha512-xaOiH/SAXrCqg2n/URVsbID7gWa8B609z8gK7YGeoWPb1JXNrc4my9Jy2VvxT/z0kicxQVDsm5G8S/UHwWJE9A==}
+  '@magicdawn/prettier-config@0.1.0':
+    resolution: {integrity: sha512-biAw57KW+UIJGCrMU0299fblBwOiVOminyq/YTHIJgrrON09kwFbKc/oISpoLH8W7wX6gmqL4OSRsX+10FQ7Jg==}
 
   ansi-escapes@5.0.0:
     resolution: {integrity: sha512-5GFMVX8HqE/TB+FuBJGuO5XG0WrsA6ptUqoODaT/n9mmUaZFkqnBueB4leqGBCmrUHnCnC4PCZTCd0E7QQ83bA==}
@@ -188,8 +188,8 @@ packages:
     engines: {node: '>=0.10'}
     hasBin: true
 
-  prettier@3.3.2:
-    resolution: {integrity: sha512-rAVeHYMcv8ATV5d508CFdn+8/pHPpXeIid1DdrPwXnaAdH7cqjVbpJaT5eq4yRAFU/lsbwYwSF/n5iNrdJHPQA==}
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -254,7 +254,7 @@ packages:
 
 snapshots:
 
-  '@magicdawn/prettier-config@0.0.4': {}
+  '@magicdawn/prettier-config@0.1.0': {}
 
   ansi-escapes@5.0.0:
     dependencies:
@@ -397,7 +397,7 @@ snapshots:
 
   pidtree@0.6.0: {}
 
-  prettier@3.3.2: {}
+  prettier@3.6.2: {}
 
   restore-cursor@4.0.0:
     dependencies:
